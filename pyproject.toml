@@ -3,7 +3,7 @@ name = "hexlet-code"
 version = "0.1.0"
 description = ""
 authors = ["vova <vladimir1012kov@gmail.com>"]
-packages = [{include = "hexlet_python_package"}]
+packages = [{include = "gendiff"}]
 
 [tool.poetry.scripts]
 gendiff = "hexlet_python_package.scripts.gendiff:main"
