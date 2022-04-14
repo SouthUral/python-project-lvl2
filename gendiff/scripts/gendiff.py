@@ -9,8 +9,8 @@ args = parser.parse_args()
 
 
 def main():
-    first_file = json.load(open(args.first_file))
-    second_file = json.load(open(args.second_file))
+    first_file = args.first_file
+    second_file = args.second_file
     print(gendiff_logic.generate_diff(first_file, second_file))
 
 
