@@ -1,5 +1,4 @@
 import argparse
-import json
 from gendiff.app_functionality import gendiff_logic
 
 parser = argparse.ArgumentParser()
