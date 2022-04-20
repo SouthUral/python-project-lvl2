@@ -1,9 +1,7 @@
 
 name: test_code
 
-on:
- push:
-  branches: [ master ]
+on: [push]
 
 jobs:
   test:
