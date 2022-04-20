@@ -1,7 +1,29 @@
 
 name: test_code
 
-on: push
+on:
+ push:
+  branches: [ master ]
 
 jobs:
   test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@master
+      - uses: action/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: flake test
+        run: |
+          make test
+          make lint
+      - uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: b45135c2a151c4dc0222b656ea55ed0acac3b9e540b66a8ac0429b40d3a347f6
+        with:
+          coverageCommand: make coverage
