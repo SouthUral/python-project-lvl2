@@ -4,7 +4,7 @@ name: test_code
 on: [push]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: action/checkout@v3
