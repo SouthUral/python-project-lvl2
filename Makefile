@@ -11,7 +11,10 @@ test:
 	poetry run pytest
 
 test1:
-	poetry run gendiff /python_learn/projects/python-project-lvl2/tests/fixtures/file1.json /python_learn/projects/python-project-lvl2/tests/fixtures/file2.json
+	poetry run gendiff /tests/fixtures/file1.json /tests/fixtures/file2.json
 
-make lint:
+lint:
 	poetry run flake8 gendiff
+
+coverage:
+	poetry run pytest --cov=gendiff/
