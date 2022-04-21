@@ -7,3 +7,6 @@
 
 <!-- asciinema gendiff -->
 https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
+
+<!-- asciinema gendiff with yaml files -->
+https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
