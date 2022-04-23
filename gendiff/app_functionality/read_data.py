@@ -1,7 +1,8 @@
 import json
 import os
 import yaml
-from .parsing_data import parsing
+from .recursive_parsing import parsing_rec
+from .formater import stylish
 
 
 def defined_by_format(name_file):
@@ -29,4 +30,6 @@ def abc_path(name_file):
 def general(file1, file2):
     file1_dict = defined_by_format(file1)
     file2_dict = defined_by_format(file2)
-    return parsing(file1_dict, file2_dict)
+    ready_internal_structure = parsing_rec(file1_dict, file2_dict)
+    stylized_output = stylish(ready_internal_structure)
+    return stylized_output
