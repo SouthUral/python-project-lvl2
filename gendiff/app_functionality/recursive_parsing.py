@@ -1,55 +1,54 @@
 
 
-def parsing_rec(data_1, data_2):
-    structure = dict()
+def parsing_rec(data_1, data_2): # noqa
+    data_structure = dict()
 
-
-    def rec_data(data):
+    def write_data(data):
         for key, value in data.items():
-            structure[key] = value
+            data_structure[key] = value
 
+    def new_dict(keys, data_dict):
+        res_dict = {}
+        for key in keys:
+            res_dict[key] = data_dict[key]
+        return res_dict
+
+    def rename_keys(data1, data2):
+        rename_data1 = {f'- {key}': value for key, value in data1.items()}
+        rename_data2 = {f'+ {key}': value for key, value in data2.items()}
+        return rename_data1, rename_data2
+
+    def define_keys(key_data1, key_data2):
+        keys1, keys2 = list(map(set, [key_data1, key_data2]))
+        gen_keys = keys1 & keys2
+        keys_1 = keys1 - keys2
+        keys_2 = keys2 - keys1
+        return gen_keys, keys_1, keys_2
 
     def recursive_func(data1, data2, key_dict=''):
-        general_keys = set(data1.keys()) & set(data2.keys())
-        keys_1 = set(data1.keys()) - set(data2.keys())
-        keys_2 = set(data2.keys()) - set(data1.keys())
-        
+
+        def recursion_logic(dict_write):
+            for key in general_keys:
+                if all([isinstance(data1[key], dict), isinstance(data2[key], dict)]): # noqa
+                    dict_write[key] = recursive_func(data1[key], data2[key], key_dict=key) # noqa
+                else:
+                    if data1[key] == data2[key]:
+                        dict_write[key] = data1[key]
+                    else:
+                        dict_write[f'- {key}'] = data1[key]
+                        dict_write[f'+ {key}'] = data2[key]
+
+        general_keys, keys_1, keys_2 = define_keys(data1.keys(), data2.keys())
+        gen_dict1 = new_dict(keys_1, data1)
+        gen_dict2 = new_dict(keys_2, data2)
+        new_data_1, new_data_2 = rename_keys(gen_dict1, gen_dict2)
         if key_dict == '':
-            rec_data(rename_keys(new_dict(keys_1, data1), '-'))
-            rec_data(rename_keys(new_dict(keys_2, data2), '+'))
-            for key in general_keys:
-                if isinstance(data1[key], dict) and isinstance(data2[key], dict):
-                    structure[key] = recursive_func(data1[key], data2[key], key_dict=key)
-                else:
-                    if data1[key] == data2[key]:
-                        structure[key] = data_1[key]
-                    else:
-                        structure[f'- {key}'] = data1[key]
-                        structure[f'+ {key}'] = data2[key]
+            write_data(new_data_1)
+            write_data(new_data_2)
+            recursion_logic(data_structure)
         else:
-            a = rename_keys(new_dict(keys_1, data1), '-')
-            b = rename_keys(new_dict(keys_2, data2), '+')
-            merge_dict = {**a, **b}
-            for key in general_keys:
-                if isinstance(data1[key], dict) and isinstance(data2[key], dict):
-                    merge_dict[key] = recursive_func(data1[key], data2[key], key_dict=key)
-                else:
-                    if data1[key] == data2[key]:
-                        merge_dict[key] = data1[key]
-                    else:
-                        merge_dict[f'- {key}'] = data1[key]
-                        merge_dict[f'+ {key}'] = data2[key]
+            merge_dict = {**new_data_1, **new_data_2}
+            recursion_logic(merge_dict)
             return merge_dict
     recursive_func(data_1, data_2)
-    return structure
-
-
-def new_dict(keys, data_dict):
-    res_dict = {}
-    for key in keys:
-        res_dict[key] = data_dict[key]
-    return res_dict
-
-
-def rename_keys(data, symb):
-    return {f'{symb} {key}' : value for key, value in data.items()}
+    return data_structure
