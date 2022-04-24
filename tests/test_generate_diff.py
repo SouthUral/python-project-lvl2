@@ -23,9 +23,15 @@ def test_gendiff_yaml():
     assert read_data.general(file1, file2) == file3
 
 
-def test_gendiff_rec():
+def test_gendiff_rec_json():
     file1 = 'tests/fixtures/file_rec1.json'
     file2 = 'tests/fixtures/file_rec2.json'
+    assert read_data.general(file1, file2) == file_rec
+
+
+def test_gendiff_rec_yaml():
+    file1 = 'tests/fixtures/file_rec1.yml'
+    file2 = 'tests/fixtures/file_rec2.yml'
     assert read_data.general(file1, file2) == file_rec
 
     
