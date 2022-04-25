@@ -3,6 +3,7 @@ import os
 import yaml
 from .recursive_parsing import parsing_rec
 from .views.formater import stylish
+from .views.format_plain import plain
 
 
 def defined_by_format(name_file):
@@ -27,9 +28,12 @@ def abc_path(name_file):
     return os.path.abspath(name_file)
 
 
-def general(file1, file2):
+def general(file1, file2, view='stylish'):
     file1_dict = defined_by_format(file1)
     file2_dict = defined_by_format(file2)
     ready_internal_structure = parsing_rec(file1_dict, file2_dict)
-    stylized_output = stylish(ready_internal_structure)
+    if view == 'stylish':
+        stylized_output = stylish(ready_internal_structure)
+    else:
+        stylized_output = plain(ready_internal_structure)
     return stylized_output

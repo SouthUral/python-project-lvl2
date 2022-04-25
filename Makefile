@@ -10,6 +10,9 @@ install:
 test:
 	poetry run pytest
 
+testp:
+	poetry run pytest -s
+
 test1:
 	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
