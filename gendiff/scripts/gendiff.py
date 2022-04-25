@@ -12,7 +12,7 @@ def main():
     first_file = args.first_file
     second_file = args.second_file
     format_view = args.format
-    if format_view == None:
+    if format_view is None:
         print(general(first_file, second_file))
     else:
         print(general(first_file, second_file, format_view))
