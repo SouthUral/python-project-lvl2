@@ -1,12 +1,12 @@
 
 
 # 3 сценария
-#1) - was removed
-#2) -+ was updated. From old_value to new_value
-#3) + was added with value: new_value
+# 1) - was removed
+# 2) -+ was updated. From old_value to new_value
+# 3) + was added with value: new_value
 
 
-def plain(data):
+def plain(data): # noqa
     # в этот список ведется запись
     output_list = []
     crutch = []
@@ -17,7 +17,7 @@ def plain(data):
         else:
             output_txt = "Property '" + txt
         output_list.append(output_txt)
-    
+
     def repeat_check(item):
         return False if item in crutch else True
 
@@ -27,7 +27,6 @@ def plain(data):
         for key in key_sort:
             if key[0] in ['+', '-'] and repeat_check(key[2:]):
                 crutch.append(key[2:])
-                # если значение изменено 
                 message = message_construct(key, data)
                 rec_in_output(message, parent_node)
             else:
@@ -38,13 +37,11 @@ def plain(data):
                     else:
                         all_node = parent_node + '.' + key
                     recusive_func(key_data, all_node)
-    
     recusive_func(data)
     return fix_bug_readfile('\n'.join(output_list))
 
 
-
-# Функция находит ключ, определяет есть ли второй ключ и запускает 1 из 3-х сценариев
+# Функция находит ключ, определяет есть ли второй ключ и запускает 1 из 3-х сценариев # noqa
 def message_construct(key, data):
     prefix = (lambda simb: '-' if simb == '+' else '+')(key[0])
     new_key = prefix + key[1:]
@@ -61,7 +58,7 @@ def message_construct(key, data):
             # запуск 3 сценария
             new_value = verif_value(data[key])
             return f"{key[2:]}' was added with value: {new_value}"
-            
+
 
 # заменяет данные на строку [complex value]
 def verif_value(value):
@@ -76,11 +73,8 @@ def verif_value(value):
 def sorted_key(value):
     return value if value[0] not in ['+', '-'] else value[2:]
 
+
 # надо переставить функцию в место где происходит парсинг
 def fix_bug_readfile(text_data):
     res = text_data.replace('True', 'true').replace('False', 'false')
     return res.replace('None', 'null')
-
-
-
-
