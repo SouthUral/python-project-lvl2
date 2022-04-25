@@ -2,7 +2,7 @@ import json
 import os
 import yaml
 from .recursive_parsing import parsing_rec
-from .formater import stylish
+from .views.formater import stylish
 
 
 def defined_by_format(name_file):
