@@ -1,6 +1,3 @@
-gendiff:
-	poetry run gendiff -h
-
 build:
 	poetry build
 
@@ -24,3 +21,6 @@ lint:
 
 coverage:
 	poetry run pytest --cov=gendiff/ --cov-report xml
+
+g:
+	poetry run gendiff -h

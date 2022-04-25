@@ -4,13 +4,18 @@ from gendiff.app_functionality.read_data import general
 parser = argparse.ArgumentParser()
 parser.add_argument('first_file')
 parser.add_argument('second_file')
+parser.add_argument('-f', '--format' , dest='format', metavar='\b',  help='output format (default: "stylish")') # noqa
 args = parser.parse_args()
 
 
 def main():
     first_file = args.first_file
     second_file = args.second_file
-    print(general(first_file, second_file))
+    format_view = args.format
+    if format_view == None:
+        print(general(first_file, second_file))
+    else:
+        print(general(first_file, second_file, format_view))
 
 
 if __name__ == '__main__':
