@@ -4,6 +4,9 @@ build:
 install:
 	python3 -m pip install --user dist/*.whl
 
+uninstall:
+	pip uninstall hexlet-code
+
 test:
 	poetry run pytest
 

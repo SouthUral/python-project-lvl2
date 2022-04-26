@@ -16,5 +16,8 @@ https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
 <!-- asciinema gendiff with recursive files -->
 https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
 
-<!-- asciinema gendiff with parameter plain -->
+<!-- asciinema gendiff with parameter view plain -->
 https://asciinema.org/a/8y56F3PdLENjYJTgjTsABw93P
+
+<!-- asciinema gendiff with parameter view json -->
+https://asciinema.org/a/cfVfe7n5oYgI3QDpxaMuYVLlA
