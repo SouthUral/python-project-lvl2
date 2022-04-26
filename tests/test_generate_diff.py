@@ -10,6 +10,7 @@ def open_file(name_file):
 file3 = open_file('tests/fixtures/file_test_gendiff.txt')
 file_rec = open_file('tests/fixtures/file_test_gendiff_rec.txt')
 file_plain_views = open_file('tests/fixtures/file_test_gendif_plain.txt')
+file_json_views = open_file('tests/fixtures/file_gendiff_json.json')
 
 
 def test_gendiff_json():
@@ -41,5 +42,11 @@ def test_plain_views():
     file2 = 'tests/fixtures/file_rec2.json'
     print(read_data.general(file1, file2, 'plain'))
     assert read_data.general(file1, file2, 'plain') == file_plain_views
+
+def test_json_view():
+    file1 = 'tests/fixtures/file_rec1.json'
+    file2 = 'tests/fixtures/file_rec2.json'
+    print(read_data.general(file1, file2, 'json'))
+    assert read_data.general(file1, file2, 'json') == file_json_views
 
 # test_plain_views()

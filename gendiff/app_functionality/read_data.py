@@ -4,6 +4,7 @@ import yaml
 from .recursive_parsing import parsing_rec
 from .views.formater import stylish
 from .views.format_plain import plain
+from .views.format_json import json_format
 
 
 def defined_by_format(name_file):
@@ -34,6 +35,8 @@ def general(file1, file2, view='stylish'):
     ready_internal_structure = parsing_rec(file1_dict, file2_dict)
     if view == 'stylish':
         stylized_output = stylish(ready_internal_structure)
-    else:
+    elif view == 'plain':
         stylized_output = plain(ready_internal_structure)
+    else:
+        stylized_output = json_format(ready_internal_structure)
     return stylized_output
