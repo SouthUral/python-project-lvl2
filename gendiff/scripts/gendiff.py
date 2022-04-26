@@ -9,6 +9,14 @@ args = parser.parse_args()
 
 
 def main():
+    generate_diff()
+
+
+if __name__ == '__main__':
+    main()
+
+
+def generate_diff():
     first_file = args.first_file
     second_file = args.second_file
     format_view = args.format
@@ -16,7 +24,3 @@ def main():
         print(general(first_file, second_file))
     else:
         print(general(first_file, second_file, format_view))
-
-
-if __name__ == '__main__':
-    main()
