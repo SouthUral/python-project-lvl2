@@ -1,5 +1,5 @@
 import argparse
-from gendiff.app_functionality.read_data import general
+from gendiff import generate_diff
 
 parser = argparse.ArgumentParser()
 parser.add_argument('first_file')
@@ -9,18 +9,14 @@ args = parser.parse_args()
 
 
 def main():
-    generate_diff()
-
-
-if __name__ == '__main__':
-    main()
-
-
-def generate_diff():
     first_file = args.first_file
     second_file = args.second_file
     format_view = args.format
     if format_view is None:
-        print(general(first_file, second_file))
+        print(generate_diff(first_file, second_file))
     else:
-        print(general(first_file, second_file, format_view))
+        print(generate_diff(first_file, second_file, format_view))
+
+
+if __name__ == '__main__':
+    main()

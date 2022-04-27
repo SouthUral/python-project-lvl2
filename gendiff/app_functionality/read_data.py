@@ -29,7 +29,7 @@ def abc_path(name_file):
     return os.path.abspath(name_file)
 
 
-def general(file1, file2, view='stylish'):
+def generate_diff(file1, file2, view='stylish'):
     file1_dict = defined_by_format(file1)
     file2_dict = defined_by_format(file2)
     ready_internal_structure = parsing_rec(file1_dict, file2_dict)
