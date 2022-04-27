@@ -1,5 +1,4 @@
 from gendiff import generate_diff
-from gendiff.app_functionality import parsing_data
 
 
 def open_file(name_file):
