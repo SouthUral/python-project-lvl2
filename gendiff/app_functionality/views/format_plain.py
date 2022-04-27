@@ -9,7 +9,6 @@
 def plain(data): # noqa
     # в этот список ведется запись
     output_list = []
-    crutch = []
 
     def rec_in_output(txt, node):
         if node != '':
@@ -18,10 +17,9 @@ def plain(data): # noqa
             output_txt = "Property '" + txt
         output_list.append(output_txt)
 
-    def repeat_check(item):
-        return False if item in crutch else True
-
     def recusive_func(data, parent_node=''):
+        crutch = []
+        repeat_check = lambda item: False if item in crutch else True # noqa
         # проверка ключей на изменения
         key_sort = sorted(data.keys(), key=sorted_key)
         for key in key_sort:
