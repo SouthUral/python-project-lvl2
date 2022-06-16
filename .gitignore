@@ -1,0 +1,13 @@
+/.vscode
+
+/dist
+
+gendiff/__pycache__
+
+gendiff/app_functionality/__pycache__
+
+gendiff/app_functionality/views/__pycache__
+
+gendiff/scripts/__pycache__
+
+tests/__pycache__
