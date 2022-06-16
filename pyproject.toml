@@ -4,6 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["vova <vladimir1012kov@gmail.com>"]
 packages = [{include = "gendiff"}]
+repository = "https://github.com/SouthUral/python-project-lvl2"
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3.8",
+]
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"

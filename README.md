@@ -7,17 +7,35 @@
 
 <a href="https://codeclimate.com/github/SouthUral/python-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6d67ce955d2d2883ab89/test_coverage" /></a>
 
-<!-- asciinema gendiff -->
-https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
 
-<!-- asciinema gendiff with yaml files -->
-https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
+## project description
+# gendiff is a console program, it makes a comparison of two files in json and yml format
+- the program can compare files both in a flat format and recursively
+    - by default, the output is done in a recursive format;
+    - to output in a flat format, you need to enter the command 'gendiff -f plain file1 file2';
+    - to output the result in json format, enter the command 'gendiff -f json file1 file2'.
 
-<!-- asciinema gendiff with recursive files -->
-https://asciinema.org/connect/ac577dd9-fe16-4adf-8164-1ae4ab4101d9
+## requirement
+- Linux operating system
+- Python 3.8
 
-<!-- asciinema gendiff with parameter view plain -->
-https://asciinema.org/a/8y56F3PdLENjYJTgjTsABw93P
+## installation
+1. clone the repository
+2. in the root folder of the repository, run the "Make build" command
+3. run the "Make install" command
 
-<!-- asciinema gendiff with parameter view json -->
-https://asciinema.org/a/cfVfe7n5oYgI3QDpxaMuYVLlA
+
+### gendiff with json files
+[![asciicast](https://asciinema.org/a/502124.svg)](https://asciinema.org/a/502124)
+
+### gendiff with yaml files
+[![asciicast](https://asciinema.org/a/489126.svg)](https://asciinema.org/a/489126)
+
+### gendiff with recursive files
+[![asciicast](https://asciinema.org/a/489691.svg)](https://asciinema.org/a/489691)
+
+### gendiff with parameter view plain
+[![asciicast](https://asciinema.org/a/489998.svg)](https://asciinema.org/a/489998)
+
+### gendiff with parameter view json
+[![asciicast](https://asciinema.org/a/490179.svg)](https://asciinema.org/a/490179)
