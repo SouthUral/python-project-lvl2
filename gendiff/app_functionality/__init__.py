@@ -1,1 +1,1 @@
-from .view_output import output_diff # noqa
+from .view_output import generate_diff # noqa

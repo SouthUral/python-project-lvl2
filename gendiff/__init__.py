@@ -1,1 +1,1 @@
-from .app_functionality import output_diff # noqa
+from .app_functionality import generate_diff # noqa
