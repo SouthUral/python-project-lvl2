@@ -26,13 +26,13 @@ def open_json(name_file):
 
 
 def generate_diff(file1, file2, view='stylish'):
-    file1_dict = reading_file_data(file1)
-    file2_dict = reading_file_data(file2)
-    ready_internal_structure = recursive_parsing.parsing(file1_dict, file2_dict)
+    file_data_1 = reading_file_data(file1)
+    file_data_2 = reading_file_data(file2)
+    data_analyzed = recursive_parsing.parsing(file_data_1, file_data_2)
     if view == 'stylish':
-        stylized_output = stylish(ready_internal_structure)
+        stylized_output = stylish(data_analyzed)
     elif view == 'plain':
-        stylized_output = plain(ready_internal_structure)
+        stylized_output = plain(data_analyzed)
     else:
-        stylized_output = json_format(ready_internal_structure)
+        stylized_output = json_format(data_analyzed)
     return stylized_output
