@@ -33,9 +33,6 @@ def check_indent(item):
 
 def check_str(item):
     return item if isinstance(item, str) else str(item)
-    # if isinstance(item, str):
-    #     return item
-    # return str(item)
 
 
 # убираем баг с чтением null, true, false
