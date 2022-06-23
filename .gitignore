@@ -11,3 +11,7 @@ gendiff/app_functionality/views/__pycache__
 gendiff/scripts/__pycache__
 
 tests/__pycache__
+
+/.coverage
+
+/coverage.xml
