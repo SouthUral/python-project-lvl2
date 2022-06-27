@@ -5,7 +5,7 @@ from .views.format_plain import plain
 from .views.format_json import json_format
 
 
-def generate_diff(file1, file2, view):
+def generate_diff(file1, file2, view='stylish'):
     file_data_1 = read_file.decryption_data(file1)
     file_data_2 = read_file.decryption_data(file2)
     data_analyzed = recursive_parsing.parsing(file_data_1, file_data_2)
